@@ -1,0 +1,49 @@
+
+const app = require("../../app");
+const supertest = require("supertest");
+const api = supertest(app);
+require("../../utils/db/database");
+
+const server = app.listen(8885, () =>
+    console.log(`Server on: ${app.get("port")}`)
+);
+
+const initialUser = [
+    {
+        firstnames: "test pablo",
+        lastnames: "userTest",
+        dpi: "111",
+        email: "test@gmail.com",
+        password: "123",
+        accountNumber: 1,
+        balance: 700,
+    },
+    {
+        firstnames: "test chin",
+        lastnames: "userTest",
+        dpi: "222",
+        email: "test@gmail.com",
+        password: "123",
+        accountNumber: 2,
+        balance: 780,
+    },
+];
+
+const bodysTest = [
+    {
+        accountNumber: 1
+    }
+]
+
+
+const initialUserNames = [{ accountNumber: 1 }, { accountNumber: 2 }]
+const initialCredentials = [{ accountNumber: 1, pass: "123" }, { accountNumber: 2, pass: "123" }]
+
+module.exports = {
+    api,
+    initialUser,
+    initialCredentials,
+    initialUserNames,
+    server,
+    bodysTest
+}

@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "4e07ed49-095d-4db4-a120-b761a3bcad24",
+		"name": "ANALISIS Y DISEÑO 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"firstnames\": \"pablo andres\",\r\n      \"lastnames\": \"argueta hernandez\",\r\n      \"dpi\": 752289297,\r\n      \"balance\": 5980,\r\n      \"email\": \"pabloandres@gmail.com\",\r\n      \"password\": 1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET REPORT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/reports/getReport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reports",
+						"getReport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BALANCE FOR USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/balance/0401482021221123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"balance",
+						"0401482021221123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRANSFER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"AccountOrigin\": \"0401482021221123\", \r\n\"AccountDestination\": \"0590482021351023\" , \r\n\"montoTransferir\":\"07\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/reports/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reports",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"firstnames\": \"pablo andres\",\r\n      \"lastnames\": \"argueta hernandez\",\r\n      \"dpi\": 752289297,\r\n      \"balance\": 5980,\r\n      \"email\": \"pabloandres@gmail.com\",\r\n      \"password\": 1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

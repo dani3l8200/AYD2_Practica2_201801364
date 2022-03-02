@@ -1,0 +1,105 @@
+stages:
+    - release #CD - Continuos Delivery
+    - test-service
+    - service
+    - test-deploy
+    - deploy #CD - Continuos Deploy
+
+release:
+    stage: release
+    image: docker:latest
+    only:
+        - "main"
+    tags:
+        - practica4
+    variables:
+        DOCKER_REGISTRY: "docker.io"
+        DOCKER_TLS_CERTDIR: "/certs"
+    script:
+        - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_KEY}
+        - docker build -t "dani3l8200/frontend"  ./frontend/
+        - docker push "dani3l8200/frontend:latest"
+        - docker build -t "dani3l8200/backend"  ./backend/
+        - docker push "dani3l8200/backend:latest"
+    after_script:
+        - docker logout
+
+test-service:
+    stage: test-service
+    only:
+        - "main"
+    image: docker:latest
+    environment:
+        name: backend-test
+    tags:
+        - practica4
+    before_script:
+        - docker stop backend-test
+        - docker rm backend-test
+    script:
+        - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_KEY}
+        - docker pull "dani3l8200/backend:latest"
+        - docker run -d  --name=backend-test dani3l8200/backend:latest
+        - docker exec -i -w /backend backend-test npm run test -- --watchAll=false
+    after_script:
+        - docker logout
+
+service:
+    stage: service
+    only:
+        - "main"
+    image: docker:latest
+    environment:
+        name: backend
+        url: ${IP_BACKEND}
+    tags:
+        - practica4
+    before_script:
+       - docker stop backend
+       - docker rm backend
+    script:
+        - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_KEY}
+        - docker pull "dani3l8200/backend:latest"
+        - docker run -d -p 0.0.0.0:4000:4000 --name=backend dani3l8200/backend:latest
+    after_script:
+        - docker logout
+
+test-deploy:
+    stage: test-deploy
+    only:
+        - "main"
+    image: docker:latest
+    environment:
+        name: frontend-test
+    tags:
+        - practica4
+    before_script:
+       - docker stop frontend-test
+       - docker rm frontend-test
+    script:
+        - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_KEY}
+        - docker pull "dani3l8200/frontend:latest"
+        - docker run -d --name=frontend-test dani3l8200/frontend:latest
+        - docker exec -i -w /fronted frontend-test npm run test -- --watchAll=false --coverage
+    after_script:
+        - docker logout
+        
+deploy:
+    stage: deploy
+    only:
+        - "main"
+    image: docker:latest
+    environment:
+        name: production
+        url: ${IP_FRONTEND}
+    tags:
+        - practica4
+    before_script:
+       - docker stop frontend
+       - docker rm frontend
+    script:
+        - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_KEY}
+        - docker pull "dani3l8200/frontend:latest"
+        - docker run -d -p 0.0.0.0:80:80 --name=frontend dani3l8200/frontend:latest
+    after_script:
+        - docker logout

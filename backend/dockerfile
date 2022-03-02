@@ -1,0 +1,15 @@
+FROM node:14-alpine 
+
+WORKDIR /backend
+
+COPY package*.json ./
+
+ENV PATH /backend/node_modules/.bin:$PATH
+
+RUN npm install 
+
+COPY . . 
+
+EXPOSE 4000
+
+CMD [ "npm", "start"]

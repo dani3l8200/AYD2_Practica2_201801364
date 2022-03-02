@@ -1,0 +1,17 @@
+.register\:register-div {
+  height: 95vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/img/info_login.jpg);
+}
+
+
+.register\:card {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: serif;
+}
