@@ -118,7 +118,7 @@ describe("Test in <Register />", () => {
             target: { value: "Roman" },
         });
         wrapperCardRegister.find("#dpiUser").simulate("change", {
-            target: { value: "29903991248" },
+            target: { value: "2990399124844" },
         });
         wrapperCardRegister.find("#initialAmount").simulate("change", {
             target: { value: "4552" },
@@ -143,7 +143,7 @@ describe("Test in <Register />", () => {
             target: { value: "Roman" },
         });
         wrapperCardRegister.find("#dpiUser").simulate("change", {
-            target: { value: "299551112" },
+            target: { value: "299551456112" },
         });
         wrapperCardRegister.find("#initialAmount").simulate("change", {
             target: { value: "4552" },
@@ -163,7 +163,7 @@ describe("Test in <Register />", () => {
         registerService.registerUser({
             firstnames: "Juan Danie",
             lastnames: "Roman",
-            dpi: "299056132835",
+            dpi: "29905996132835",
             balance: "293",
             email: "testin2939@mail.com",
             password: "1234",
