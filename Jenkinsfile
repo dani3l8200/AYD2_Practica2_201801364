@@ -15,6 +15,8 @@ pipeline {
     stage('backend') {
       agent any
       steps {
+        sh 'docker stop backend'
+        sh 'docker rm backend'
         sh 'docker login -u dani3l8200 -p anonymo2'
         sh 'docker pull dani3l8200/backend:latest'
         sh 'docker run -d -p 0.0.0.0:4000:4000 --name=backend dani3l8200/backend:latest'
@@ -23,6 +25,8 @@ pipeline {
     stage('test-deploy') {
       agent any
       steps {
+        sh 'docker stop frontend-test'
+        sh 'docker rm frontend-test'
         sh 'docker login -u dani3l8200 -p anonymo2'
         sh 'docker pull dani3l8200/frontend:latest'
         sh 'docker run -d --name=frontend-test dani3l8200/frontend:latest'
