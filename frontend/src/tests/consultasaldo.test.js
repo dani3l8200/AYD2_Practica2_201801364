@@ -24,7 +24,7 @@ describe("Test in <ConsultaSaldo />", () => {
             });
 
             test("should the correct function of call API balance", (done) => {
-                getBalanceUser("1").then((res) => {
+                getBalanceUser("0664422022224713").then((res) => {
                     expect("ok").toContain(res.msg);
                     done();
                 });
@@ -44,7 +44,7 @@ describe("Test in <ConsultaSaldo />", () => {
                 const isAuth = jest.fn();
                 const wrapperCardLogin = shallow( < Login isAuthLS = { isAuth }
                     />);
-                    const child = wrapperCardLogin.find("#logincomp").props(); child.children.props.verifyLogin("1", "123").then((res) => {
+                    const child = wrapperCardLogin.find("#logincomp").props(); child.children.props.verifyLogin("0664422022224713", "1234").then((res) => {
                             const fn = jest.fn();
                             const component = mount( < ConsultaSaldo loggedUser = { fn }
                                 />);
