@@ -31,7 +31,7 @@ describe("Test in <Transferencia />", () => {
         const cuentaDestinoInput = wrapperCardRegister
             .find("#noCuentaDestino")
             .simulate("change", {
-                target: { value: "0664422022224713" },
+                target: { value: "06644220222247132" },
             });
         expect(cuentaDestinoInput.length).toEqual(1);
     });
