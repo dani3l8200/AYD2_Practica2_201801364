@@ -41,7 +41,7 @@ describe("Test in <Register />", () => {
     test("should the correct functioning of input for Last Name CardRegister", () => {
         const wrapperCardRegister = shallow( < RegisterCard / > );
         const dpiInput = wrapperCardRegister.find("#dpiUser").simulate("change", {
-            target: { value: "299084456" },
+            target: { value: "2990844564" },
         });
         expect(dpiInput.length).toEqual(1);
     });
@@ -118,7 +118,7 @@ describe("Test in <Register />", () => {
             target: { value: "Roman" },
         });
         wrapperCardRegister.find("#dpiUser").simulate("change", {
-            target: { value: "299038111248" },
+            target: { value: "29903611248" },
         });
         wrapperCardRegister.find("#initialAmount").simulate("change", {
             target: { value: "4552" },
@@ -143,7 +143,7 @@ describe("Test in <Register />", () => {
             target: { value: "Roman" },
         });
         wrapperCardRegister.find("#dpiUser").simulate("change", {
-            target: { value: "2990381112" },
+            target: { value: "299031112" },
         });
         wrapperCardRegister.find("#initialAmount").simulate("change", {
             target: { value: "4552" },
@@ -163,7 +163,7 @@ describe("Test in <Register />", () => {
         registerService.registerUser({
             firstnames: "Juan Danie",
             lastnames: "Roman",
-            dpi: "299056145121326",
+            dpi: "2990561328326",
             balance: "293",
             email: "testin2939@mail.com",
             password: "1234",
