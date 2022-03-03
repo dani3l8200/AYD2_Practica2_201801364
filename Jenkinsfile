@@ -36,6 +36,8 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
+        sh 'docker stop frontend'
+        sh 'docker rm frontend'
         sh 'docker login -u dani3l8200 -p anonymo2'
         sh 'docker pull dani3l8200/frontend:latest'
         sh 'docker run -d -p 0.0.0.0:80:80 --name=frontend dani3l8200/frontend:latest'

@@ -33,7 +33,7 @@ const Login = ({ isAuthLS }) => {
     <div className="login:login-div">
       <div className="login:login-cards">
         <div className="login:div-card-info">
-          <p>Bienvenido a CALIFICACION 02/11/2021</p>
+          <p>Bienvenido a AYD2 JENKINS</p>
           <img src="/img/banco.jpg" alt="" />
         </div>
         <div className="login:div-card-card" id="logincomp">
