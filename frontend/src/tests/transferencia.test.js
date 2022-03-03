@@ -110,7 +110,7 @@ describe("Test in <Transferencia />", () => {
     test("should the success call api of TransferenciaSaldo", (done) => {
         reportService.transfer({
             AccountOrigin: "0664422022224713",
-            AccountDestination: "0876422022472227",
+            AccountDestination: "08764220224722272",
             montoTransferir: parseInt("1", 10),
         }).then((res) => {
             expect("ok").toContain(res.msg);
